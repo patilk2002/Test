@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alkalinity Calculator</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
+    <script src="{{ url_for('static', filename='css/form.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Latest compiled JavaScript -->
@@ -57,12 +56,12 @@
     </div>
       </nav>
       
-    <form id="regForm"  onsubmit="calculateAlk();">
+    <form action="{{ url_for("gfg")}}" method="post" id="regForm"  >
         
         
         
         <!-- One "tab" for each step in the form: -->
-        <div class="tab"><h3>Sample Information</h3>
+        <div class="tab" style="display:block"><h3>Sample Information</h3>
             <div class="row">
                 <div class="col">
                     <label for="name">Site Name:</label>
@@ -109,13 +108,13 @@
                 </div>
                 <div class="col">
                     <label for="vol" style="color:red">Sample Volume:</label>
-                    <input type="number" id="vol" value="100" min="10" max="100"><span>&nbsp mL</span>
+                    <input type="number" id="vol" value="100" name="vol" min="10" max="100"><span>&nbsp mL</span>
                 </div>
                 </div>
                 <div class="row">
                 <div class="col">
                     <label for="vol2" style="color:red">Volume of H2SO4</label>
-                    <input type="number" min="0" max="50" id="vol2" value="12"><span>&nbsp mL</span>
+                    <input type="number" min="0" max="50" id="vol2" name="vol2" value="12"><span>&nbsp mL</span>
                 </div>
                 <div class="col">
                     <label for="conc" style="color: red;">Normality of H2SO4:</label>
@@ -237,6 +236,10 @@
         <div class="tab"><h3>Titration Analysis:</h3>
          <!-- <div class="row">
             <div class="col"> -->
+
+                
+
+
               <th align="right" valign="top">
                 <label style="margin-bottom:0px">Analysis Methods:</label>
               </th>
@@ -287,6 +290,30 @@
 <!--   
             </div>
          </div> -->
+
+
+
+        <!-- <div>
+
+            <form action="{{ url_for("gfg")}}" method="post">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="fname" placeholder="firstname">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lname" placeholder="lastname">
+                <button type="submit">Login</button>
+                
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
         </div>
         
         <div style="overflow:auto;">
@@ -312,7 +339,7 @@
             <div class="col">Privacy</div>
             <div class="col">Policies and Notices</div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col" ><a href="#" style="margin-right: 2px;">U.S.Department of the Interior</a>|<a href="#" style="margin-left: 2px;">U.S. Geological Survey</a></div>
         </div>
         <div>
@@ -323,13 +350,10 @@
         </div>
         <div>
             Page Last Modified: Friday - Oct 28,2022 at 16:45:58 IST
-        </div>
+        </div> -->
     </footer>
     
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
-
-    <script src="{{ url_for('static', filename='js/form.js') }}" async></script>
+    <!-- <script src="form.js" async></script> -->
     
 </body>
 </html>
