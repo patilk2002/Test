@@ -1,19 +1,15 @@
-from flask import Flask, jsonify
-app = Flask(_name_)
+from flask import Flask, render_template, request, flash
+
+app = Flask(__name__)
+app.secret_key = "manbearpig_MUDMAN888"
 
 
-@app.route('/')
-def home():
-    return "HOME"
+@app.route("/")
+def index():
+    flash("what's your name?")
+    return render_template("index.html")
 
-
-@app.route("/result", methods=["GET"])
-def similar_to(volH, volS, N):
-    res = (volH*N*50*1000)/(volS)
-    res = jsonify(res)
-    res.headers.add("Access-Control-Allow-Origin", "*")
-    return res
-
-
-if _name_ == "_main_":
-    app.run(debug=True)
+# @app.route("/greet", methods=['POST', 'GET'])
+# def greeter():
+# 	flash("Hi " + str(request.form['name_input']) + ", great to see you!")
+# 	return render_template("index.html")
